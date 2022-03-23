@@ -4,7 +4,7 @@ export const getForecast = createAsyncThunk(
   "location/getForecast",
   async ({ locationKey, degree }) => {
     const api = {
-      base: `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}`,
+      base: `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}`,
       query: `?apikey=${process.env.REACT_APP_ACCUWEATHER_API_KEY}&metric=${degree}`,
     };
     return fetch(api.base + api.query).then((res) => res.json());
@@ -27,8 +27,7 @@ export const getForecastSlice = createSlice({
       state.data = action.payload;
       state.status = "success";
     },
-    [getForecast.rejected]: (state, action) => {
-      state.data = action;
+    [getForecast.rejected]: (state) => {
       state.status = "failed";
     },
   },
