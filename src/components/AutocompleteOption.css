@@ -1,0 +1,11 @@
+.autocomplete-option {
+  cursor: pointer;
+}
+
+.autocomplete-option:hover {
+  border: 1px solid black;
+}
+
+.autocomplete-option p {
+  margin: 5px;
+}
