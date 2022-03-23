@@ -27,7 +27,8 @@ export const getForecastSlice = createSlice({
       state.data = action.payload;
       state.status = "success";
     },
-    [getForecast.rejected]: (state) => {
+    [getForecast.rejected]: (state, action) => {
+      state.data = action;
       state.status = "failed";
     },
   },
