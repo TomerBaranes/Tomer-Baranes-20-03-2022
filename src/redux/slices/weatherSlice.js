@@ -27,7 +27,8 @@ export const getWeatherSlice = createSlice({
       state.data = action.payload;
       state.status = "success";
     },
-    [getWeather.rejected]: (state) => {
+    [getWeather.rejected]: (state, action) => {
+      state.data = action;
       state.status = "failed";
     },
   },
